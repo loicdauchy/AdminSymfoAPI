@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Categories{% endblock %}
+
+{% block body %}
+{% if not app.user %} 
+       
+    <a href="{{ path('security_login') }}"><button class="btn btn-success">Connexion</button></a>
+        
+{% else %}
+<div class="container centHeight">
+    <div class="row centHeight justify-content-center align-items-center">
+        <div class="col-12">
+            <h2>Ajouter une Categorie:</h2>
+            {{ form_start(addCategory) }}
+                <div class="form-group">
+                    {{ form_row(addCategory.title, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_row(addCategory.description, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <button type="submit" class="btn btn-success">Ajouter</button>
+            {{ form_end(addCategory) }}
+        </div>
+    </div>
+</div>
+{% endif %}   
+{% endblock %}

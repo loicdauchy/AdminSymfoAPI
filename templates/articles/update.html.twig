@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update article{% endblock %}
+
+{% block body %}
+{% if not app.user %} 
+       
+    <a href="{{ path('security_login') }}"><button class="btn btn-success">Connexion</button></a>
+        
+{% else %}
+<div class="container centHeight">
+    <div class="row centHeight justify-content-center align-items-center">
+        <div class="col-12 col-md-6">
+            <h2>Modifier l'article: <span style="color:green;">{{article.title}}</span></h2>
+            {{ form_start(upForm) }}
+                <div class="form-group">
+                    {{ form_row(upForm.title, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_row(upForm.category, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_row(upForm.description, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_row(upForm.image, {'attr': {'class': 'form-control upload', 'placeholder': 'Cliquez ici pour uploader une image'}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_row(upForm.price, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <button type="submit" class="btn btn-warning">Modifier</button>
+            {{ form_end(upForm) }}
+        </div>
+        <div class="col-12 col-md-6" style="min-height:600px !important; background:url('{{article.image}}');background-size:cover;background-position:center;">
+        </div>
+    </div>
+</div>
+{% endif %}  
+{% endblock %}

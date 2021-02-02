@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Admin{% endblock %}
+
+{% block body %}
+<div class="container centHeight">
+    <div class="row centHeight justify-content-center align-items-center">
+        <div class="col-6">
+        {% if not app.user %} 
+            <h2>Connexion:</h2>
+            <form action="{{ path('security_login') }}" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Email" required name="_username">
+                </div>
+
+                <div class="form-group">
+                     <input type="password" class="form-control" placeholder="Password" required name="_password">
+                </div>
+
+                <button type="submit" class="btn btn-success">Connexion</button>
+            </form>
+            {% else %}
+            <H1>Bienvenue sur Admin Shop</H1>
+            {% endif %} 
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+.centHeight{
+    min-height: 100vh;
+}
+
+footer{
+    width: 100%;
+    color: white;
+    background: rgb(51, 47, 47);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+.upload{
+    border: 1px dashed rgb(56, 51, 51) !important;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.upload::placeholder{
+    color: rgb(52, 150, 52);
+}
